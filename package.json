@@ -1,0 +1,25 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "db:generate": "drizzle-kit generate:sqlite",
+    "db:push": "drizzle-kit push:sqlite"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.4.3",
+    "drizzle-orm": "^0.29.4",
+    "nuxt": "^3.10.3",
+    "vue": "^3.4.19",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.9",
+    "drizzle-kit": "^0.20.14"
+  }
+}
