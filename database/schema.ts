@@ -6,7 +6,7 @@ export const books = sqliteTable('books', {
    title: text('title').notNull(),
    author: text('author').notNull(),
    createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
-   updated_at: text('updated_at').default(sql`CURRENT_TIMESTAMP`),
+   updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`),
 });
 
 export const bookRelations = relations(books, ({ many }) => ({
@@ -21,10 +21,13 @@ export const chapters = sqliteTable('chapters', {
    content: text('content').notNull(),
    title: text('title').notNull(),
    createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
-   updated_at: text('updated_at').default(sql`CURRENT_TIMESTAMP`),
+   updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`),
 });
 
 export const chapterRelations = relations(chapters, ({ one }) => ({
-   book: one(books),
+   book: one(books, {
+      fields: [chapters.bookId],
+      references: [books.id],
+   }),
 }));
 
